@@ -1,0 +1,185 @@
+/**
+ * AUTUMN PRESET: FALLING
+ * Theme: Transition, falling leaves, earthy terracotta/burgundy patina,
+ * interactive fallen leaf drifts, acorns, twigs, and turbulent leaf drift.
+ */
+export const autumnSeason = {
+  id: 'autumn',
+  index: '03',
+  name: 'AUTUMN',
+  status: 'implemented',
+  headline: 'FALLING',
+  supportingText: 'DRIFT THROUGH TIME',
+
+  typography: {
+    fontUrl: '/fonts/CormorantGaramond-SemiBold.json',
+    fallbackFontUrl:
+      'https://cdn.jsdelivr.net/npm/three@0.169.0/examples/fonts/optimer_regular.typeface.json',
+    fontFamilyName: 'Cormorant Garamond SemiBold',
+    fontLicense: 'SIL Open Font License 1.1',
+    size: 1.38,
+    height: 0.19,
+    curveSegments: 36,
+    bevelEnabled: true,
+    bevelThickness: 0.052,
+    bevelSize: 0.034,
+    bevelOffset: 0.0,
+    bevelSegments: 8,
+    letterSpacing: 0.055,
+  },
+
+  palette: {
+    background: '#DFCFC0',
+    skyTop: '#C49582',
+    skyHorizon: '#EBD9CC',
+    groundBase: '#DFCFC0',
+    groundMoss: '#9A5426',
+    groundMossDeep: '#5E3219',
+    groundMossFresh: '#C8853B',
+    fogColor: '#E5D4C6',
+    textPrimary: '#2B1812',
+    textSecondary: '#66463B',
+    accentPrimary: '#9E3B24',
+    accentSecondary: '#C87A32',
+  },
+
+  material: {
+    color: '#9E3F28',
+    flatColor: '#963822',
+    emissive: '#331008',
+    emissiveIntensity: 0.08,
+    roughness: 0.3,
+    metalness: 0.03,
+    clearcoat: 0.46,
+    clearcoatRoughness: 0.26,
+    sheen: 0.68,
+    sheenRoughness: 0.36,
+    sheenColor: '#E69F52',
+    blushResponseColor: '#D9822B',
+    subsurfaceColor: '#C86D44',
+    reflectivity: 0.58,
+    microNoiseScale: 4.2,
+    microRoughnessAmplitude: 0.11,
+    subsurfaceIntensity: 0.34,
+  },
+
+  environment: {
+    type: 'autumn-foliage',
+    ground: {
+      moundHeight: 0.13,
+      widthMultiplier: 4.2,
+      minWidth: 26.0,
+      depth: 14.0,
+    },
+    grass: {
+      enabled: true,
+      fineBladeCount: 2600,
+      minHeight: 0.05,
+      maxHeight: 0.23,
+      letterOverlapMax: 0.19,
+      windSpeed: 1.45,
+      windStrength: 0.048,
+      windWaveLength: 0.72,
+      cursorBendRadius: 1.5,
+      cursorBendStrength: 0.1,
+      colors: {
+        sage: '#A67238',
+        freshGreen: '#C98E42',
+        yellowGreen: '#E2AE58',
+        deepMoss: '#6E421E',
+      },
+    },
+    foliage: {
+      leafCount: 620,
+      palette: {
+        crimson: '#9E2A1C',
+        rust: '#C85224',
+        amber: '#E08228',
+        gold: '#EBB43E',
+        burgundy: '#6E1D1B',
+      },
+    },
+    accents: {
+      acornCount: 28,
+      twigCount: 22,
+    },
+  },
+
+  interaction: {
+    deformRadius: 1.15,
+    baseDeformIntensity: 0.2,
+    hoverDeformBoost: 0.38,
+    radialSpread: 0.08,
+    zBulgeDepth: 0.15,
+    velocityInfluence: 0.06,
+    letterBuoyancy: 0.02,
+    letterTiltAmount: 0.035,
+    velocityShear: 0.05,
+    pointerDamping: 6.5,
+    rotationDamping: 4.2,
+    maxCursorTiltX: 0.04,
+    maxCursorTiltY: 0.06,
+    orbitSensitivity: 0.0065,
+    pullSensitivity: 0.0042,
+    panSensitivity: 0.0048,
+    maxLateralPan: 2.0,
+    meadowZoomRadius: 4.75,
+    flowerFocusY: -0.38,
+    canopyMaxAngle: 0.82,
+  },
+
+  animation: {
+    idleBreathingSpeed: 0.88,
+    idleElevationAmplitude: 0.012,
+    idleRotationAmplitude: 0.014,
+    surfaceRippleSpeed: 1.15,
+    surfaceRippleAmplitude: 0.007,
+    canopyLightSwaySpeed: 0.52,
+  },
+
+  lighting: {
+    ambient: {
+      color: '#F5E4D6',
+      intensity: 0.84,
+    },
+    keyLight: {
+      color: '#FFEAD2',
+      intensity: 2.5,
+      position: [6.2, 5.5, 6.0],
+    },
+    rimLight: {
+      color: '#F2A65A',
+      intensity: 1.9,
+      position: [-6.0, 3.4, -3.0],
+    },
+    blushFill: {
+      color: '#D97F54',
+      intensity: 1.45,
+      position: [2.5, -2.5, 4.0],
+      distance: 16,
+      decay: 1.5,
+    },
+  },
+
+  particles: {
+    enabled: true,
+    count: 44,
+    bounds: [11.0, 5.2, 3.8],
+    baseSize: 64.0,
+    driftSpeed: -0.22, // Falling autumn leaves
+    turbulence: 0.42,
+    cursorRepulsionRadius: 0.0,
+    cursorRepulsionStrength: 0.0,
+    colorPrimary: '#C85224',
+    colorSecondary: '#E08828',
+    colorAccent: '#9E2A1C',
+    opacity: 0.86,
+  },
+
+  camera: {
+    position: [0, 0.22, 7.15],
+    fov: 38,
+    near: 0.1,
+    far: 55,
+  },
+};

@@ -1,0 +1,229 @@
+:root {
+  --bg-obsidian: #E6E2D1;
+  --text-alabaster: #1E2B1A;
+  --accent-celadon: #4A6621;
+  --surface-glass: rgba(255, 252, 247, 0.55);
+  --surface-glass-strong: rgba(255, 252, 247, 0.82);
+  --border-subtle: rgba(30, 43, 26, 0.14);
+  --font-ui: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-obsidian);
+  color: var(--text-alabaster);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.installation-shell {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  transition: background-color 0.65s ease, color 0.45s ease;
+}
+
+.canvas-stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.canvas-stage canvas {
+  touch-action: none;
+  display: block;
+}
+
+/* Minimal Perimeter UI Overlay */
+.interface-overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: clamp(1.5rem, 3.2vw, 2.75rem);
+  pointer-events: none;
+}
+
+/* Header */
+.installation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-title {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  color: var(--text-alabaster);
+  opacity: 0.85;
+}
+
+.meta-index {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--text-alabaster);
+  opacity: 0.75;
+}
+
+/* Supporting phrase beneath the seasonal typography */
+.supporting-caption-stage {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: clamp(1.75rem, 4.5vh, 3.25rem);
+}
+
+.supporting-caption {
+  font-size: clamp(0.72rem, 0.95vw, 0.82rem);
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  color: var(--text-alabaster);
+  opacity: 0.78;
+  text-align: center;
+  padding-left: 0.42em;
+  transition: opacity 0.35s ease, transform 0.35s ease, color 0.45s ease;
+  animation: captionFadeIn 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.supporting-caption.is-hidden {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+@keyframes captionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 0.78;
+    transform: translateY(0);
+  }
+}
+
+/* Clean Centered Footer & Shared Frosted Glass Surfaces */
+.installation-footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 44px;
+}
+
+.season-list,
+.reset-view-button {
+  background: var(--surface-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+}
+
+.season-selector {
+  pointer-events: auto;
+}
+
+.season-list {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  list-style: none;
+  padding: 0.25rem;
+}
+
+.season-button {
+  min-height: 38px;
+  padding: 0.4rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-alabaster);
+  font-family: var(--font-ui);
+  cursor: pointer;
+  transition: border-color 0.25s ease, background-color 0.25s ease, opacity 0.25s ease;
+}
+
+.season-button:hover:not(:disabled) {
+  background: var(--surface-glass-strong);
+}
+
+.season-button.is-active {
+  background: var(--surface-glass-strong);
+  border-color: var(--border-subtle);
+}
+
+.season-button.is-planned {
+  opacity: 0.38;
+  cursor: default;
+}
+
+.season-name {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+}
+
+/* Quiet Reset Control on Bottom Right when Rotated */
+.reset-view-button {
+  position: absolute;
+  right: 0;
+  pointer-events: auto;
+  min-height: 38px;
+  padding: 0.4rem 0.85rem;
+  color: var(--text-alabaster);
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.reset-view-button:hover {
+  background: var(--surface-glass-strong);
+  border-color: var(--accent-celadon);
+}
+
+.season-button:focus-visible,
+.reset-view-button:focus-visible {
+  outline: 2px solid var(--accent-celadon);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .installation-footer {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .reset-view-button {
+    position: static;
+  }
+
+  .season-button {
+    padding: 0.4rem 0.7rem;
+  }
+}
